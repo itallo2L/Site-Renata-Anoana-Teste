@@ -413,6 +413,7 @@ function login(){
       const status = rest.slice(0, sep);
       let payload = {};
       try { payload = JSON.parse(rest.slice(sep + 1)); } catch(e) {}
+      try { popup.close(); } catch(e) {}
       if (status === 'success' && payload.token) {
         onLoginSuccess(payload.token);
       } else {
