@@ -1,12 +1,68 @@
 {
   "items": [
-    { "id": "p1", "title": "Conjunto Coral Vermelho", "description": "", "category": "conjuntos", "price": 379.90, "image": "images/produto-1.jpg" },
-    { "id": "p2", "title": "Colar Lua de Turquesa", "description": "", "category": "colares", "price": 259.90, "image": "images/produto-2.jpg" },
-    { "id": "p3", "title": "Anel Rosa Vermelha", "description": "", "category": "aneis", "price": 179.90, "image": "images/produto-3.jpg" },
-    { "id": "p4", "title": "Conjunto Esmeralda Vintage", "description": "", "category": "conjuntos", "price": 459.90, "image": "images/produto-4.jpg" },
-    { "id": "p5", "title": "Conjunto Rubi Vintage", "description": "", "category": "conjuntos", "price": 429.90, "image": "images/produto-5.jpg" },
-    { "id": "p6", "title": "Brinco Gota Turquesa", "description": "", "category": "brincos", "price": 169.90, "image": "images/produto-6.jpg" },
-    { "id": "p7", "title": "Bracelete Prata Lisa", "description": "", "category": "pulseiras", "price": 219.90, "image": "images/produto-7.jpg" },
-    { "id": "p8", "title": "Conjunto Pedra Verde", "description": "", "category": "conjuntos", "price": 329.90, "image": "images/produto-8.jpg" }
+    {
+      "id": "p1",
+      "title": "Conjunto Red",
+      "description": "",
+      "category": "conjuntos",
+      "price": 379.9,
+      "image": "images/produto-1.jpg"
+    },
+    {
+      "id": "p2",
+      "title": "Colar Meia Lua",
+      "description": "",
+      "category": "colares",
+      "price": 259.9,
+      "image": "images/produto-2.jpg"
+    },
+    {
+      "id": "p3",
+      "title": "Anel Rosa Vermelha",
+      "description": "",
+      "category": "aneis",
+      "price": 179.9,
+      "image": "images/produto-3.jpg"
+    },
+    {
+      "id": "p4",
+      "title": "Conjunto Esmeralda Vintage",
+      "description": "",
+      "category": "conjuntos",
+      "price": 459.9,
+      "image": "images/produto-4.jpg"
+    },
+    {
+      "id": "p5",
+      "title": "Conjunto Rubi Vintage",
+      "description": "",
+      "category": "conjuntos",
+      "price": 429.9,
+      "image": "images/produto-5.jpg"
+    },
+    {
+      "id": "p6",
+      "title": "Brinco Gota Turquesa",
+      "description": "",
+      "category": "brincos",
+      "price": 169.9,
+      "image": "images/produto-6.jpg"
+    },
+    {
+      "id": "p7",
+      "title": "Bracelete Prata Lisa",
+      "description": "",
+      "category": "pulseiras",
+      "price": 219.9,
+      "image": "images/produto-7.jpg"
+    },
+    {
+      "id": "p8",
+      "title": "Conjunto Pedra Verde",
+      "description": "",
+      "category": "conjuntos",
+      "price": 329.9,
+      "image": "images/produto-8.jpg"
+    }
   ]
 }
