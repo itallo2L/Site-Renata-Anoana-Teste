@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('ra-theme');
+    if(!t){ t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; }
+    document.documentElement.setAttribute('data-theme', t);
+  }catch(e){}
+})();
+</script>
+<title>Renata Anoana</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <div class="brand-group">
+      <div class="logo-badge" aria-hidden="true">
+        <img src="images/logo.png" alt="" />
+      </div>
+      <div class="brand">Renata Anoana<small>Pratas com pedras naturais</small></div>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.2M12 19.8V22M4.2 4.2l1.55 1.55M18.25 18.25l1.55 1.55M2 12h2.2M19.8 12H22M4.2 19.8l1.55-1.55M18.25 5.75l1.55-1.55"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Prata com pedras naturais, <em>lapidada à mão.</em></h1>
+    <p>Anéis, colares, brincos e pulseiras com pedras naturais, garimpados um a um. Escolha a peça e finalize o pedido direto pelo WhatsApp — enviamos para todo o Brasil.</p>
+  </section>
+
+  <nav class="filters" aria-label="Filtrar por categoria">
+    <button class="pill" data-filter="todos" aria-pressed="true">Todos</button>
+    <button class="pill" data-filter="aneis" aria-pressed="false">Anéis</button>
+    <button class="pill" data-filter="colares" aria-pressed="false">Colares</button>
+    <button class="pill" data-filter="brincos" aria-pressed="false">Brincos</button>
+    <button class="pill" data-filter="pulseiras" aria-pressed="false">Pulseiras</button>
+    <button class="pill" data-filter="conjuntos" aria-pressed="false">Conjuntos</button>
+  </nav>
+
+  <section class="grid" id="grid">
+    <article class="card" data-category="conjuntos">
+      <div class="media">
+        <img src="images/produto-1.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="body">
+        <span class="tag">Conjuntos</span>
+        <h3>Conjunto Coral Vermelho</h3>
+        <span class="price">R$ 379,90</span>
+        <a class="buy" href="https://wa.me/556296514773?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Conjunto%20Coral%20Vermelho%20(R%24%20379%2C90).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.1A7.7 7.7 0 1 1 9 18.6L4 20z"/></svg>
+          Comprar no WhatsApp
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-category="colares">
+      <div class="media">
+        <img src="images/produto-2.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="body">
+        <span class="tag">Colares</span>
+        <h3>Colar Lua de Turquesa</h3>
+        <span class="price">R$ 259,90</span>
+        <a class="buy" href="https://wa.me/556296514773?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Colar%20Lua%20de%20Turquesa%20(R%24%20259%2C90).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.1A7.7 7.7 0 1 1 9 18.6L4 20z"/></svg>
+          Comprar no WhatsApp
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-category="aneis">
+      <div class="media">
+        <img src="images/produto-3.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="body">
+        <span class="tag">Anéis</span>
+        <h3>Anel Rosa Vermelha</h3>
+        <span class="price">R$ 179,90</span>
+        <a class="buy" href="https://wa.me/556296514773?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Anel%20Rosa%20Vermelha%20(R%24%20179%2C90).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.1A7.7 7.7 0 1 1 9 18.6L4 20z"/></svg>
+          Comprar no WhatsApp
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-category="conjuntos">
+      <div class="media">
+        <img src="images/produto-4.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="body">
+        <span class="tag">Conjuntos</span>
+        <h3>Conjunto Esmeralda Vintage</h3>
+        <span class="price">R$ 459,90</span>
+        <a class="buy" href="https://wa.me/556296514773?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Conjunto%20Esmeralda%20Vintage%20(R%24%20459%2C90).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.1A7.7 7.7 0 1 1 9 18.6L4 20z"/></svg>
+          Comprar no WhatsApp
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-category="conjuntos">
+      <div class="media">
+        <img src="images/produto-5.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="body">
+        <span class="tag">Conjuntos</span>
+        <h3>Conjunto Rubi Vintage</h3>
+        <span class="price">R$ 429,90</span>
+        <a class="buy" href="https://wa.me/556296514773?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Conjunto%20Rubi%20Vintage%20(R%24%20429%2C90).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.1A7.7 7.7 0 1 1 9 18.6L4 20z"/></svg>
+          Comprar no WhatsApp
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-category="brincos">
+      <div class="media">
+        <img src="images/produto-6.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="body">
+        <span class="tag">Brincos</span>
+        <h3>Brinco Gota Turquesa</h3>
+        <span class="price">R$ 169,90</span>
+        <a class="buy" href="https://wa.me/556296514773?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Brinco%20Gota%20Turquesa%20(R%24%20169%2C90).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.1A7.7 7.7 0 1 1 9 18.6L4 20z"/></svg>
+          Comprar no WhatsApp
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-category="pulseiras">
+      <div class="media">
+        <img src="images/produto-7.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="body">
+        <span class="tag">Pulseiras</span>
+        <h3>Bracelete Prata Lisa</h3>
+        <span class="price">R$ 219,90</span>
+        <a class="buy" href="https://wa.me/556296514773?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Bracelete%20Prata%20Lisa%20(R%24%20219%2C90).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.1A7.7 7.7 0 1 1 9 18.6L4 20z"/></svg>
+          Comprar no WhatsApp
+        </a>
+      </div>
+    </article>
+
+    <article class="card" data-category="conjuntos">
+      <div class="media">
+        <img src="images/produto-8.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="body">
+        <span class="tag">Conjuntos</span>
+        <h3>Conjunto Pedra Verde</h3>
+        <span class="price">R$ 329,90</span>
+        <a class="buy" href="https://wa.me/556296514773?text=Ol%C3%A1!%20Tenho%20interesse%20em%20Conjunto%20Pedra%20Verde%20(R%24%20329%2C90).%20Pode%20me%20passar%20mais%20detalhes%3F" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.1A7.7 7.7 0 1 1 9 18.6L4 20z"/></svg>
+          Comprar no WhatsApp
+        </a>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="brand">Renata Anoana</div>
+      <p>Pratas com pedras naturais. Pedidos, dúvidas e encomendas sob medida, direto pelo WhatsApp — enviamos para todo o Brasil.</p>
+    </div>
+    <div class="footer-social">
+      <a class="social-link" href="https://www.instagram.com/renata.anoana/" target="_blank" rel="noopener" aria-label="Instagram da Renata Anoana">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<a class="float-cta" href="https://wa.me/556296514773?text=Ol%C3%A1!%20Vim%20do%20site%20e%20queria%20saber%20mais%20sobre%20as%20pe%C3%A7as." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.1A7.7 7.7 0 1 1 9 18.6L4 20z"/></svg>
+</a>
+
+<script>
+(function(){
+  var pills = document.querySelectorAll('.pill');
+  var cards = document.querySelectorAll('.card');
+  pills.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      pills.forEach(function(p){ p.setAttribute('aria-pressed','false'); });
+      pill.setAttribute('aria-pressed','true');
+      var filter = pill.getAttribute('data-filter');
+      cards.forEach(function(card){
+        var match = filter === 'todos' || card.getAttribute('data-category') === filter;
+        card.hidden = !match;
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var toggle = document.getElementById('theme-toggle');
+  var sun = toggle.querySelector('.icon-sun');
+  var moon = toggle.querySelector('.icon-moon');
+  function setHidden(el, isHidden){ if(isHidden){ el.setAttribute('hidden',''); } else { el.removeAttribute('hidden'); } }
+  function applyIcon(theme){ setHidden(sun, theme !== 'light'); setHidden(moon, theme !== 'dark'); }
+  applyIcon(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  toggle.addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    applyIcon(next);
+    try{ localStorage.setItem('ra-theme', next); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>

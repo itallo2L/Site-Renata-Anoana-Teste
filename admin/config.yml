@@ -1,0 +1,38 @@
+backend:
+  name: github
+  # Troque pelo repositório onde este site está publicado.
+  # Durante o teste, use a conta/repositório novos que você vai criar;
+  # depois, quando for para produção, troque para itallo2L/Site-Renata-Anoana.
+  repo: SEU-USUARIO-DE-TESTE/SEU-REPOSITORIO-DE-TESTE
+  branch: main
+  # URL do Cloudflare Worker (sveltia-cms-auth) que faz a ponte do login
+  # com o GitHub. Troque depois de publicar o Worker.
+  base_url: https://SEU-WORKER.workers.dev
+
+# Onde as fotos enviadas pelo painel são salvas no repositório, e o caminho
+# usado para referenciá-las no HTML gerado. Sem barra no início: o site fica
+# publicado numa subpasta (usuario.github.io/nome-do-repo/), então um
+# caminho começando com "/" apontaria para o domínio errado.
+media_folder: "images"
+public_folder: "images"
+
+collections:
+  - name: products
+    label: Produtos
+    files:
+      - name: catalog
+        label: Catálogo de produtos
+        file: products.json
+        format: json
+        fields:
+          - name: items
+            label: Produtos
+            widget: list
+            summary: "{{fields.title}} — R$ {{fields.price}}"
+            fields:
+              - { name: id, label: ID, widget: hidden, default: "" }
+              - { name: title, label: Título, widget: string }
+              - { name: description, label: Descrição, widget: text, required: false }
+              - { name: category, label: Categoria, widget: string, hint: "aneis, colares, brincos, pulseiras, conjuntos ou uma nova categoria" }
+              - { name: price, label: "Preço (R$)", widget: number, value_type: float, min: 0 }
+              - { name: image, label: Foto, widget: image }

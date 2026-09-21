@@ -1,0 +1,43 @@
+name: Reconstruir index.html a partir de products.json
+
+# Roda sempre que products.json ou as fotos em images/ mudam na branch main
+# — inclusive quando o painel em /admin salva uma edição, já que o Sveltia
+# CMS funciona fazendo commits direto no repositório.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "products.json"
+      - "images/**"
+      - "scripts/build-site.js"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Gerar index.html
+        run: node scripts/build-site.js
+
+      - name: Publicar o index.html atualizado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Nada mudou no index.html — nada para publicar."
+          else
+            git commit -m "Atualiza index.html a partir de products.json [auto]"
+            git push
+          fi
