@@ -1,14 +1,6 @@
 {
   "items": [
     {
-      "id": "p1",
-      "title": "Conjunto Red",
-      "description": "",
-      "category": "conjuntos",
-      "price": 379.9,
-      "image": "images/produto-1.jpg"
-    },
-    {
       "id": "p2",
       "title": "Colar Meia Lua",
       "description": "",
