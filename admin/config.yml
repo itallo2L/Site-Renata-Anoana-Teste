@@ -7,7 +7,7 @@ backend:
   branch: main
   # URL do Cloudflare Worker (sveltia-cms-auth) que faz a ponte do login
   # com o GitHub. Troque depois de publicar o Worker.
-  base_url: https://SEU-WORKER.workers.dev
+  base_url: https://sveltia-cms-auth.itallocerqueiracosta.workers.dev/
 
 # Onde as fotos enviadas pelo painel são salvas no repositório, e o caminho
 # usado para referenciá-las no HTML gerado. Sem barra no início: o site fica
