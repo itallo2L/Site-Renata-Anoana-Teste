@@ -278,6 +278,16 @@ header.top{
   </div>
 </div>
 
+<!-- ---------- tela de acesso negado ---------- -->
+<div class="login-screen" id="denied-screen" hidden>
+  <div class="login-card">
+    <div class="logo-badge"><img src="../images/logo.png" alt=""></div>
+    <h1>Sem permissão</h1>
+    <p>A conta <strong id="denied-account"></strong> fez login com sucesso, mas não tem permissão de edição no repositório <strong id="denied-repo"></strong>. Peça para o dono do site te adicionar como colaboradora, ou entre com outra conta.</p>
+    <button id="btn-try-another" class="btn solid">Entrar com outra conta</button>
+  </div>
+</div>
+
 <!-- ---------- painel principal ---------- -->
 <div class="wrap" id="panel" hidden>
   <div class="panel-head">
@@ -424,10 +434,21 @@ function logout(){
   try{ sessionStorage.removeItem('ra-admin-token'); }catch(e){}
   document.getElementById('panel').hidden = true;
   document.getElementById('savebar').hidden = true;
+  document.getElementById('denied-screen').hidden = true;
   document.getElementById('who').hidden = true;
   document.getElementById('btn-logout').hidden = true;
   document.getElementById('login-screen').hidden = false;
 }
+
+function showAccessDenied(user){
+  document.getElementById('panel').hidden = true;
+  document.getElementById('savebar').hidden = true;
+  document.getElementById('login-screen').hidden = true;
+  document.getElementById('denied-account').textContent = user.login;
+  document.getElementById('denied-repo').textContent = REPO_PATH;
+  document.getElementById('denied-screen').hidden = false;
+}
+document.getElementById('btn-try-another').addEventListener('click', logout);
 
 function showLoginError(msg){
   const el = document.getElementById('login-error');
@@ -465,6 +486,18 @@ async function loadUser(){
   const res = await ghFetch('/user');
   if (!res.ok) throw new Error('Não foi possível confirmar sua conta do GitHub.');
   return res.json();
+}
+
+// Verifica, direto na API do GitHub, se a conta logada tem permissão de
+// escrita ("push") no repositório — não basta ter uma conta válida do
+// GitHub, porque um repositório público pode ser lido por qualquer
+// pessoa autenticada. Essa checagem evita que alguém sem permissão
+// sequer veja a lista de produtos.
+async function hasWriteAccess(){
+  const res = await ghFetch(`/repos/${REPO_PATH}`);
+  if (!res.ok) throw new Error('Não foi possível verificar o acesso ao repositório "' + REPO_PATH + '".');
+  const repo = await res.json();
+  return !!(repo.permissions && (repo.permissions.push || repo.permissions.admin));
 }
 
 async function loadProducts(){
@@ -605,13 +638,22 @@ async function saveProducts(){
    ============================================================ */
 async function enterPanel(){
   document.getElementById('login-screen').hidden = true;
-  document.getElementById('panel').hidden = false;
-  document.getElementById('savebar').hidden = false;
-  document.getElementById('product-count').textContent = 'Carregando…';
+  document.getElementById('denied-screen').hidden = true;
   setStatus(null);
 
   try {
     const user = await loadUser();
+
+    const canWrite = await hasWriteAccess();
+    if (!canWrite) {
+      showAccessDenied(user);
+      return;
+    }
+
+    document.getElementById('panel').hidden = false;
+    document.getElementById('savebar').hidden = false;
+    document.getElementById('product-count').textContent = 'Carregando…';
+
     const whoEl = document.getElementById('who');
     whoEl.textContent = 'Olá, ' + (user.name || user.login);
     whoEl.hidden = false;
@@ -624,8 +666,13 @@ async function enterPanel(){
     renderProducts();
     renderSavebar();
   } catch (err) {
-    setStatus('error', err.message || 'Não foi possível carregar o painel.');
-    document.getElementById('product-count').textContent = '—';
+    // erro inesperado (rede, API fora do ar etc.) — volta pra tela de
+    // login em vez de deixar o painel pela metade
+    document.getElementById('panel').hidden = true;
+    document.getElementById('savebar').hidden = true;
+    document.getElementById('denied-screen').hidden = true;
+    document.getElementById('login-screen').hidden = false;
+    showLoginError(err.message || 'Não foi possível carregar o painel.');
   }
 }
 
