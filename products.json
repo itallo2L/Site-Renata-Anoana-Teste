@@ -2,7 +2,7 @@
   "items": [
     {
       "id": "p2",
-      "title": "Colar Meia Lua",
+      "title": "Colar Meia Lua teste",
       "description": "",
       "category": "colares",
       "price": 259.9,
@@ -55,6 +55,14 @@
       "category": "conjuntos",
       "price": 329.9,
       "image": "images/produto-8.jpg"
+    },
+    {
+      "id": "pmubl4k3d",
+      "title": "teste",
+      "description": "",
+      "category": "sem-categoria",
+      "price": 0,
+      "image": ""
     }
   ]
 }
