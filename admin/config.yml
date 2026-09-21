@@ -3,7 +3,7 @@ backend:
   # Troque pelo repositório onde este site está publicado.
   # Durante o teste, use a conta/repositório novos que você vai criar;
   # depois, quando for para produção, troque para itallo2L/Site-Renata-Anoana.
-  repo: SEU-USUARIO-DE-TESTE/SEU-REPOSITORIO-DE-TESTE
+  repo: itallo2l/Site-Renata-Anoana-Teste
   branch: main
   # URL do Cloudflare Worker (sveltia-cms-auth) que faz a ponte do login
   # com o GitHub. Troque depois de publicar o Worker.
